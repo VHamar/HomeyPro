@@ -3,9 +3,9 @@
 This is where I play around with Homey Pro and share what I make. If the info below is Norwegian then it's so because the script/Flow info is Norway specific.
 
 ## **Scripts**
-### [**Hent Addresse Info**](Scripts/rest-getaddressinfo.js)
+### [**Hent Addresse Info**](./wiki/rest-getaddressinfo.md)
 Dette HomeyScript'et henter adresse info fra Kartverket og lagrer informasjonen som tag'er. 
-### [**Min Renovasjon**](wiki/rest-mrendatoer.md)
+### [**Min Renovasjon**](./wiki/rest-mrendatoer.md)
 Dette HomeyScript'et henter tømmedatoer for forskjellige typer avfall fra Min Renovasjon og lagrer tømmedatoene i tag'er.
 
 ## **Flows**
