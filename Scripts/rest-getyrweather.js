@@ -66,9 +66,7 @@ if (!res.ok) {
 }
 const weather = await res.json();
 
-// Ugly hack to get timeoffset
 const sys = await Homey.system.getInfo()
-log (sys);
 
 var timeseries = weather.properties.timeseries[0];
 var next1h = timeseries.data.next_1_hours;
