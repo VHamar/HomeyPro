@@ -78,7 +78,7 @@ var windd = +details.wind_from_direction;
 var winds = +details.wind_speed
 var time = new Date(timeseries.time); 
 time = time.toLocaleTimeString('nb-NO',{hour: 'numeric', minute: 'numeric', timeZone: sys.timezone});
-var forecast = `${time}: ${temp.toFixed(1)}°C, ${precip.toFixed(1)}mm, ${winds.toFixed(1)}ms ${getDirection(windd)}:  ${legend}° \n`
+var forecast = `${time}: ${temp.toFixed(1)}°C, ${precip.toFixed(1)}mm, ${winds.toFixed(1)}ms ${getDirection(windd)}:  ${legend}° \n`;
 
 log(forecast);
-await tag('yrnestetime')
+await tag('yrnestetime', forecast);
