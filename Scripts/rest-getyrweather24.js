@@ -68,19 +68,20 @@ const weather = await res.json();
 
 // Ugly hack to get timeoffset
 const sys = await Homey.system.getInfo()
-log (sys);
 
-var timeseries = weather.properties.timeseries[0];
-var next1h = timeseries.data.next_1_hours;
-var legend = getlegend(next1h)
-var precip = +getprecipitation(next1h);
-var details = timeseries.data.instant.details;
-var temp = +details.air_temperature;
-var windd = +details.wind_from_direction;
-var winds = +details.wind_speed
-var time = new Date(timeseries.time); 
-time = time.toLocaleTimeString('nb-NO',{hour: 'numeric', minute: 'numeric', timeZone: sys.timezone});
-var forecast = `${time}: ${temp.toFixed(1)}°C, ${precip.toFixed(1)}mm, ${winds.toFixed(1)}ms ${getDirection(windd)}:  ${legend}° \n`
-
+var forecast = '';
+for (let i = 0;i < 24;i++) {
+  var timeseries = weather.properties.timeseries[i];
+  var next1h = timeseries.data.next_1_hours;
+  var legend = getlegend(next1h)
+  var precip = +getprecipitation(next1h);
+  var details = timeseries.data.instant.details;
+  var temp = +details.air_temperature;
+  var windd = +details.wind_from_direction;
+  var winds = +details.wind_speed
+  var time = new Date(timeseries.time).toLocaleTimeString('nb-NO',{hour: 'numeric', minute: 'numeric', timeZone: sys.timezone});
+  forecast += `${time}: ${(`    ${temp.toFixed(1)}`).slice(-5)}°C, ${precip.toFixed(1)}mm, ${winds.toFixed(1)}ms ${getDirection(windd)}:  ${legend}° \n`
+}
 log(forecast);
-await tag('yrnestetime')
+await tag('yrneste24', forecast)
+
