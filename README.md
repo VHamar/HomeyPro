@@ -7,7 +7,8 @@ This is where I play around with Homey Pro and share what I make. If the info be
 Dette HomeyScript'et henter adresse info fra Kartverket og lagrer informasjonen som tag'er. 
 ### [**Min Renovasjon**](./wiki/rest-mrendatoer.md)
 Dette HomeyScript'et henter tømmedatoer for forskjellige typer avfall fra Min Renovasjon og lagrer tømmedatoene i tag'er.
-
+### **Yr.no Forecast** [rest-getyrweather.js](Scripts/rest-getyrweather.js) & [rest-getyrweather24.js](Scripts/rest-getyrweather24.js)
+Siden jeg allerede hadde hjemmo lokasjon fra Adresse Info scriptet så tenkte jeg at jeg kunne hente litt værmelding også fra Yr.no. Kan brukes uten addresse info så sant du enten lager to tag'er (adr-lat og adr-lon) eller forandrer de 2 første linjene. Værvarsel lagres henholdsvis i tag'ene **yrnestetime** og **yrneste24**
 ## **Flows**
 ### Min Renovasjon
 Eksempel på bruk av Min Renovasjon scriptet ovenfor. 
