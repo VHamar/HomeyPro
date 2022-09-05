@@ -10,7 +10,21 @@ Dette HomeyScript'et henter tømmedatoer for forskjellige typer avfall fra Min R
 ### **Yr.no Forecast** [rest-getyrweather.js](Scripts/rest-getyrweather.js) & [rest-getyrweather24.js](Scripts/rest-getyrweather24.js)
 Siden jeg allerede hadde hjemmo lokasjon fra Adresse Info scriptet så tenkte jeg at jeg kunne hente litt værmelding også fra Yr.no. Kan brukes uten addresse info så sant du enten lager to tag'er (adr-lat og adr-lon) eller forandrer de 2 første linjene. Værvarsel lagres henholdsvis i tag'ene **yrnestetime** og **yrneste24**
 ### **Get TibberPrices** [get-tibberprices.js](Scripts/get-tibberprices.js)
-A quick hack for getting the cheapest hour and cheapest 3h period from Tibber API. Fetches and calculates for today, and for tomorrow if data is available (run script after 13:00)
+An liten test av Tibber API. Henter pricer for idag, og og i morra hvis de er tilgjengelige (etter 13:00). Finner den timen som er billigest og den 3, 5 eller 7 timer perioden som har lavest snitt pris.
+Setter tagger for time og periode for idag og evt i morra.
+Tagger | Datatype | Eksempel
+------ | -------- | --------
+TIB-cheapestHourToday | Number | 12
+TIB-cheapestPeriodToday | String | 12 - 14
+TIB-cheapestHourTomorrow | Number | 03
+TIB-cheapestPeriodTomorrow | String | 21 - 23
+  
+### **Check TibberPrices** [check-tibberprices.js](Scripts/check-tibberprices.js)
+Et lite script som er ment å kjøre hver time. Sjekker tag'ene fra scriptet ovenfor og setter variabler for laveste time og periode til ja/nei (true/false).
+Tagger | DataType | Eksempel
+------ | -------- | --------
+TIB-LowestHour | Boolean | true
+TIB-LowestPeriod | Boolean | false
 ## **Flows**
 ### Min Renovasjon
 Eksempel på bruk av Min Renovasjon scriptet ovenfor. 
